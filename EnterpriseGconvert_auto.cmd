@@ -1,9 +1,9 @@
 @echo off
 color 1F
-TITLE Windows 10 Enterprise G×ª»»´¦Àí by https://03k.org
-::½ö×÷²¿ÊğÊ¾Àı£¬ÇëĞŞ¸ÄÎªÄã×Ô¼ºµÄKMS·şÎñÆ÷
+TITLE Windows 10 Enterprise G è½¬æ¢å¤„ç† by https://03k.org
+::ä»…ä½œéƒ¨ç½²ç¤ºä¾‹ï¼Œè¯·ä¿®æ”¹ä¸ºä½ è‡ªå·±çš„KMSæœåŠ¡å™¨
 set kmsserver=kms.03k.org
-::½ö×÷²¿ÊğÊ¾Àı£¬ÇëĞŞ¸ÄÎªÄã×Ô¼ºµÄKMS·şÎñÆ÷
+::ä»…ä½œéƒ¨ç½²ç¤ºä¾‹ï¼Œè¯·ä¿®æ”¹ä¸ºä½ è‡ªå·±çš„KMSæœåŠ¡å™¨
 :: Get Administrator Rights
 set _Args=%*
 if "%~1" NEQ "" (
@@ -22,14 +22,14 @@ if not exist "%skudir%\EnterpriseG.cer" goto error
 expand -r -F:* %skudir%\EnterpriseG.cer %skudir%\ 1>nul 2>nul
 del /s /f /q %skudir%\EnterpriseG.cer
 cls
-echo ÕıÔÚ°²×°Ö¤Êé£¬ÇëÉÔºò...
+echo æ­£åœ¨å®‰è£…è¯ä¹¦ï¼Œè¯·ç¨å€™...
 %windir%\System32\cscript.exe //nologo %windir%\System32\slmgr.vbs /rilc 1>nul 2>nul
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\CurrentVersion\Software Protection Platform" /v NoGenTicket /t REG_DWORD /d 1 /f 1>nul 2>nul
 %windir%\System32\cscript.exe //nologo %windir%\System32\slmgr.vbs /act-type 0 1>nul 2>nul
 %windir%\System32\cscript.exe //nologo %windir%\System32\slmgr.vbs /ckhc 1>nul 2>nul
 %windir%\System32\cscript.exe //nologo %windir%\System32\slmgr.vbs  /ipk YYVX9-NTFWV-6MDM3-9PT4T-4M68B
 %windir%\System32\cscript.exe //nologo %windir%\System32\slmgr.vbs /skms %kmsserver% 1>nul 2>nul
-echo ÕıÔÚÁ¬½ÓÖ¸¶¨·şÎñÆ÷¼¤»î£¬ÇëÉÔºò...
+echo æ­£åœ¨è¿æ¥æŒ‡å®šæœåŠ¡å™¨æ¿€æ´»ï¼Œè¯·ç¨å€™...
 %windir%\System32\cscript.exe //nologo %windir%\System32\slmgr.vbs /ato
 %windir%\System32\cscript.exe //nologo %windir%\System32\slmgr.vbs /ckms 1>nul 2>nul
 reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform\55c92734-d682-4d71-983e-d6ec3f16059f" /f 1>nul 2>nul
@@ -37,13 +37,13 @@ reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtection
     reg delete "%%d\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform\55c92734-d682-4d71-983e-d6ec3f16059f" /f 1>nul 2>nul
 ))
 %windir%\System32\cscript.exe //nologo %windir%\System32\slmgr.vbs  /xpr
-echo Windows 10 Enterprise G×ª»»¼¤»îÖ´ĞĞÍê³É
-echo ÔÄ¶Á°ïÖúĞÅÏ¢£ºhttps://github.com/lixuy/EnterpriseGconvert
+echo Windows 10 Enterprise Gè½¬æ¢æ¿€æ´»æ‰§è¡Œå®Œæˆ
+echo é˜…è¯»å¸®åŠ©ä¿¡æ¯ï¼šhttps://github.com/lixuy/EnterpriseGconvert
 timeout 8
 exit
 :error
 cls
-echo ÎŞ·¨ÊÍ·ÅÖ¤Êé£¬ÇëÈ·ÈÏÊÇ·ñÓÃÓÒ¼ü¹ÜÀíÔ±ÔËĞĞ»òÕßÎÄ¼şÊÇ·ñËğ»µ
+echo æ— æ³•é‡Šæ”¾è¯ä¹¦ï¼Œè¯·ç¡®è®¤æ˜¯å¦ç”¨å³é”®ç®¡ç†å‘˜è¿è¡Œæˆ–è€…æ–‡ä»¶æ˜¯å¦æŸå
 timeout 3
 exit
 -----BEGIN CERTIFICATE-----
